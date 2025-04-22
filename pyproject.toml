@@ -3,7 +3,16 @@ name = "sonar-python"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = "~=3.12"
 dependencies = [
     "flask>=3.1.0",
+    "pysonar-scanner>=0.2.0.520",
 ]
+
+[tool.sonar]
+projectKey = "my:python:project"
+projectName = "My Python Project"
+sources = "."
+token = "sqa_43a8cdb57ad15c83d517d2841640506942088c08"
+host.url = "http://localhost:9000"
+python.version = "3.12"

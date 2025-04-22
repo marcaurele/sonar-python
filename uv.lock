@@ -1,6 +1,6 @@
 version = 1
 revision = 1
-requires-python = ">=3.12"
+requires-python = ">=3.12, <4"
 
 [[package]]
 name = "blinker"
@@ -108,15 +108,40 @@ wheels = [
 ]
 
 [[package]]
+name = "pysonar-scanner"
+version = "0.2.0.520"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "toml" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/f2/6e/4c966fc046191973274f0117d0ce622cd04942e0defdde494d7c835f1c04/pysonar_scanner-0.2.0.520.tar.gz", hash = "sha256:499989f5d85f0b6dabee52870eb1d5613de1b83bfffec7084f61a5c181cb084e", size = 11140 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/2b/31/07f7a2c22ef2ab379a1c997df4947bd5685ffeace97f45303402fcf5b08c/pysonar_scanner-0.2.0.520-py3-none-any.whl", hash = "sha256:73c6a594fd7b8ae98841a6314f66ae838133276a320299f2a2316999c8216fff", size = 15273 },
+]
+
+[[package]]
 name = "sonar-python"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "flask" },
+    { name = "pysonar-scanner" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "flask", specifier = ">=3.1.0" }]
+requires-dist = [
+    { name = "flask", specifier = ">=3.1.0" },
+    { name = "pysonar-scanner", specifier = ">=0.2.0.520" },
+]
+
+[[package]]
+name = "toml"
+version = "0.10.2"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/be/ba/1f744cdc819428fc6b5084ec34d9b30660f6f9daaf70eead706e3203ec3c/toml-0.10.2.tar.gz", hash = "sha256:b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f", size = 22253 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/44/6f/7120676b6d73228c96e17f1f794d8ab046fc910d781c8d151120c3f1569e/toml-0.10.2-py2.py3-none-any.whl", hash = "sha256:806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b", size = 16588 },
+]
 
 [[package]]
 name = "werkzeug"

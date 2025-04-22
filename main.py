@@ -10,6 +10,7 @@ class Event:
     def store(self, event:str) -> List:
         events = [event]
         self._peeked_events.extend(events)
+        print(f"Length: {len(self._peeked_events)}")
         return events
 
 
@@ -19,5 +20,4 @@ events = Event()
 @app.route("/")
 def main_route() -> dict:
     event_key = request.args.get("event", "")
-    events.store(event_key)
-    return {"events": event_key}
+    return {"events": events.store(event_key)}

@@ -7,10 +7,23 @@ This repository contains code sample in Python to validate SonarSource code scan
 To run the application server, execute:
 
 ```shell
-uv run flask --app main run
+docker compose up
 ```
 
-To scan the code with sonarsource scanner:
+To hammer the server and generate an OOM:
 
 ```shell
+while curl http://localhost:5000/\?event\=`uuidgen` ; do echo "."; done
 ```
+
+_Need to find another `uuidgen` command._
+
+## Sonar scan
+
+```shell
+uv run pysonar-scanner
+```
+
+## Local admin account
+
+`E_FD7hytFTom-qO8mL-xwDZEXQVdB8EA`
