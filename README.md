@@ -13,7 +13,7 @@ docker compose up
 To hammer the server and generate an OOM:
 
 ```shell
-while curl http://localhost:5000/\?event\=`uuidgen` ; do echo "."; done
+while curl http://localhost:5000/\?event\=$(< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c64;echo;) ; do echo "."; done
 ```
 
 _Need to find another `uuidgen` command._
