@@ -6,11 +6,14 @@ from flask import Flask, request
 class Event:
     def __init__(self):
         self._peeked_events: Deque = deque()
+        self._events: List = []
 
     def store(self, event:str) -> List:
         events = [event]
         self._peeked_events.extend(events)
+        self._events.append(event)
         print(f"Length: {len(self._peeked_events)}")
+        print(f"Length: {len(self._events)}")
         return events
 
 
