@@ -20,7 +20,7 @@ class Event:
 app = Flask(__name__)
 events = Event()
 
-@app.route("/")
+@app.route("/", methods=('GET',))
 def main_route() -> dict:
     event_key = request.args.get("event", "")
     return {"events": events.store(event_key)}
